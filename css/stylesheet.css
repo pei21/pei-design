@@ -1,0 +1,523 @@
+/* GDES306 | MMDD253 - Coding Your Portfolio     */
+/* Extra small devices (phones, less than 600px) */
+/* No media query since this is the default CSS */
+/* Basic page styling */
+:root {
+  --black: black;
+  --dark-grey: #333;
+  --mid-grey: #666;
+  --light-yellow: #ffe9b3;
+  --white: white;
+  --accent-colour: #cadaff;
+  --headline-font: "spinwerad", serif;
+  --body-font: "Lexend", sans-serif; /* Update to use Lato */
+  --horizontal-shift: 6px;
+  --section-padding-top: 60px;
+}
+@font-face {
+  font-family: "spinwerad";
+  src: url("/fonts/spinwerad.bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+}
+body {
+  font-family: var(--body-font);
+  font-weight: 200; /* Light */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border-bottom: none;
+  color: var(--black);
+  text-decoration: none;
+  font-family: var(--headline-font);
+}
+h1 {
+  font-weight: bold;
+  font-size: calc(20px + (72 - 40) * (100vw - 400px) / (1800 - 400));
+
+  margin-bottom: 3rem;
+}
+h2 {
+  font-size: calc(32px + (48 - 32) * (100vw - 400px) / (1800 - 400));
+  margin-bottom: 1.5rem;
+  color: var(--black);
+}
+h3 {
+  font-size: calc(24px + (30 - 20) * (100vw - 400px) / (1800 - 400));
+  color: var(--black);
+}
+.footer-h3 {
+  font-size: calc(24px + (30 - 20) * (100vw - 400px) / (1800 - 400));
+  color: var(--white);
+}
+h4 {
+  font-size: calc(18px + (30 - 20) * (100vw - 400px) / (1800 - 400));
+  color: #ba551b;
+}
+
+p {
+  color: var(--black);
+  font-size: calc(16px + (20 - 16) * (100vw - 400px) / (1800 - 400));
+  margin: 2rem 0;
+}
+.footer-p {
+  color: var(--white);
+  font-size: calc(16px + (20 - 16) * (100vw - 400px) / (1800 - 400));
+  margin-bottom: 2rem;
+}
+a {
+  font-size: calc(16px + (20 - 16) * (100vw - 400px) / (1800 - 400));
+  text-decoration: none;
+  color: var(--black);
+}
+a:visited {
+  color: var(--black);
+}
+.btn {
+  background-color: #cadaff; /* Light blue */
+  color: var(--black);
+  border: none;
+  font-weight: 400;
+  border-radius: 20px;
+  transition: background-color 0.3s ease-in-out;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(16px + (20 - 16) * (100vw - 400px) / (1800 - 400));
+  width: fit-content;
+}
+.btn:hover {
+  background-color: #ffe9b3;
+  color: var(--black);
+}
+.btn:visited {
+  color: var(--black);
+}
+.btn:hover:visited {
+  color: var(--black);
+}
+img {
+  width: 100%;
+}
+.emoji {
+  font-size: 2em;
+}
+@keyframes bounceText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorChangeText {
+  0% {
+    color: #000;
+  }
+  50% {
+    color: #ff6347;
+  } /* Tomato color */
+  100% {
+    color: #000;
+  }
+}
+
+@keyframes bounceEmoji {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorChangeEmoji {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+.animated-word {
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  animation: bounceText 1s infinite, colorChangeText 2s infinite;
+}
+
+.animated-emoji {
+  display: inline-block;
+  font-size: 2em;
+  animation: bounceEmoji 1s infinite, colorChangeEmoji 2s infinite;
+}
+/* Styling the Navigation */
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+nav {
+  background: var(--white);
+  height: 60px;
+  overflow: hidden;
+}
+.navexpanded {
+  height: auto;
+}
+nav ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  text-align: center;
+}
+nav ul > li {
+  font-weight: 400;
+  margin-bottom: 8px;
+  flex-basis: 100%;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--black);
+  margin: 20px;
+}
+nav ul li a:hover {
+  text-decoration: none;
+  color: var(--dark-grey);
+  border-bottom: 2px solid var(--accent-colour);
+  padding-bottom: 2px; /* Adjust spacing if needed */
+}
+#logo {
+  margin-top: 12px;
+  /* font-family: "Fascinate", cursive; */
+  margin-right: auto;
+  flex-basis: 50%;
+  text-align: left;
+}
+#logo img {
+  width: 50px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+#logo a {
+  font-size: 28px;
+  height: 2rem;
+  width: auto;
+}
+.fa-bars {
+  font-size: 24px; /* Adjust the size as needed */
+}
+#menu-icon,
+#close-icon {
+  margin-left: auto;
+  flex-basis: 50%;
+  text-align: right;
+  font-size: 40px;
+  margin-top: 0px;
+}
+#close-icon {
+  display: none;
+}
+.navexpanded #close-icon {
+  display: inline-block;
+}
+.navexpanded #menu-icon {
+  display: none;
+}
+#logo a:hover,
+#menu-icon a:hover,
+#close-icon a:hover {
+  background: none;
+}
+/* #menu-icon {
+  margin-left: auto;
+  flex-basis: 50%;
+  text-align: right;
+  font-size: 40px;
+  margin-top: 0px;
+} */
+#logo a:hover,
+#menu-icon a:hover {
+  background: none;
+}
+.resume-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  background-color: #cadaff; /* Light blue */
+  color: black;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.resume-btn:hover {
+  background-color: #ffe9b3; /* Light yellow */
+  color: black;
+}
+/* Styling for the Sections */
+section {
+  display: grid;
+  min-height: calc(100vh - var(--section-padding-top));
+  padding-top: var(--section-padding-top);
+  grid-template-columns: 5% 1fr 5%;
+  align-content: start;
+}
+
+section > * {
+  grid-column: 2;
+}
+#introduction {
+  align-content: center;
+}
+.competitive-viva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.competitive-viva ul li {
+  margin: 40px 0;
+}
+/* animation viva-project */
+
+.competitive-viva ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Smooth color animation */
+@keyframes colorChange {
+  0% {
+    color: rgb(190, 185, 185); /* Blue */
+  }
+  50% {
+    color: #ba551b; /* Brown */
+  }
+
+  100% {
+    color: var(--accent-colour); /* Back to Blue */
+  }
+}
+
+/* Apply color animation to each span element */
+.animate-item {
+  animation: colorChange 3s ease-in-out infinite; /* Infinite color change */
+  display: inline-block;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for the color change */
+}
+
+/* Apply delays for each span to stagger the color animations */
+.animate-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.animate-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.animate-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.animate-item:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.animate-item:nth-child(5) {
+  animation-delay: 1.2s;
+}
+/* Styling the Sections-viva */
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+}
+video {
+  display: grid;
+  width: 100%;
+}
+.video-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.two-columns-video {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.project-title {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+.featured {
+  grid-column: 1/-1; /*This Class can be used to stretch an item the entire width of the parent grid */
+}
+
+/* Styling for the Portfolio Section */
+#projects a:hover h3,
+#projects a:hover p {
+  padding-left: var(--horizontal-shift);
+}
+/* style for art-team-lab */
+.video-artteam-lab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* This creates 3 equal columns */
+  gap: 20px; /* Adds spacing between the items */
+}
+
+/* Styling for the About */
+#about ul {
+  list-style: none;
+}
+/* skill lists below */
+.two-columns-fixed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+}
+/* Styling the Contact section */
+#contact {
+  min-height: auto;
+}
+#contact ul {
+  display: flex;
+  list-style-type: none;
+  margin: 20px 0px;
+}
+#contact ul li a {
+  text-decoration: none;
+  color: var(--accent-colour);
+  margin: 0 20px 0 0;
+  font-size: 32px;
+}
+#contact ul li a:hover {
+  text-decoration: none;
+  color: var(--light-yellow);
+}
+/* dark colour scheme */
+/* Styling to make a dark the colour scheme. Add this class to a section */
+.dark-colours {
+  background: var(--black);
+  color: var(--white);
+}
+.dark-colours a {
+  color: var(--white);
+}
+.dark-colours a:visited {
+  color: var(--white);
+}
+.dark-colours .btn {
+  color: var(--black);
+  background: var(--white);
+}
+.dark-colours .btn:hover {
+  color: var(--black);
+  background: var(--light-yellow);
+}
+/* Styling for the project */
+.intro-paragraph {
+  font-size: calc(16px + (20 - 16) * (100vw - 400px) / (1800 - 400));
+  grid-column: 1/-1;
+}
+
+.auto-height {
+  min-height: auto;
+}
+/* Small devices (i.e. tablets in portrait) */
+@media (min-width: 600px) {
+  nav {
+    height: auto;
+  }
+  nav ul {
+    flex-direction: row;
+    align-items: baseline;
+  }
+  nav ul > li {
+    flex-basis: auto;
+  }
+  #logo {
+    flex-basis: auto;
+  }
+  #menu-icon {
+    display: none;
+  }
+  section {
+    grid-template-columns: 10% 1fr 10%;
+  }
+  .navexpanded #close-icon {
+    display: none;
+  }
+  .two-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-p {
+    grid-template-columns: 1fr;
+  }
+
+  .two-columns-video {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin-bottom: 2rem;
+    justify-items: center;
+  }
+  .three-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+}
+
+/* Medium devices (i.e. tablets in landscape */
+@media (min-width: 900px) {
+}
+
+/* Large devices (i.e. desktop) */
+
+@media (min-width: 1200px) {
+}
+
+/* X-Large devices (i.e. big desktop) */
+
+@media (min-width: 1800px) {
+}
